@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"; // Make sure this import is present
+
 function UserProfilePage() {
   const userProfile = {
     image: "https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-cohort-tools-routing/profile-1.png",
@@ -7,36 +9,36 @@ function UserProfilePage() {
   };
 
   return (
-    <div className="StudentDetailsPage bg-gray-100 py-6 px-4 border-2 border-violet-500 m-2">
-      <h1>User Profile Page</h1>
-      <div className="bg-white p-8 rounded-lg shadow-md mb-6">
+    <div className="UserProfilePage bg-gray-100 py-6 px-4 border-2 border-violet-500 m-2">
+      <h1 className="text-xl font-semibold mb-4">User Profile Page</h1>
+      <div className="bg-white p-8 rounded-lg shadow-md mb-6 flex flex-col items-center">
         {userProfile && (
           <>
             <img
               src={userProfile.image}
               alt="profile-photo"
-              className="rounded-full w-32 h-32 object-cover border-2 border-gray-300"
+              className="rounded-full w-32 h-32 object-cover border-2 border-gray-300 mb-4"
             />
-            <h1 className="text-2xl mt-4 font-bold absolute">
-              {userProfile.name}
-            </h1>
+            <h2 className="text-2xl font-bold mb-2">{userProfile.name}</h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-24 mb-4 border-b pb-4">
-              <p className="text-left mb-2 pb-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 mb-4 border-b pb-4 w-full">
+              <p className="text-left">
                 <strong>Email:</strong> {userProfile.email}
               </p>
-              <p className="text-left mb-2 pb-2">
+              <p className="text-left">
                 <strong>Role:</strong> {userProfile.role}
               </p>
             </div>
           </>
         )}
 
-        {/* Back button */}        
-        <button className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out">
+        {/* Back button as a Link */}
+        <Link
+          to="/"
+          className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out"
+        >
           Back
-        </button>
-        
+        </Link>
       </div>
     </div>
   );
